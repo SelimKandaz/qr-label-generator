@@ -1,29 +1,52 @@
-# QR Label Generator
+# QR Label Generator / QRCC
 
-A lightweight Python utility for generating QR labels and inventory-ready label sheets from CSV asset data.
+A Python QR and Code128 label generator for inventory, asset labeling and operations workflows.
 
-## Features
+This repository now includes two layers:
 
-- Generate QR labels from CSV input
-- Produce individual PNG labels
-- Produce a printable PDF label sheet
-- Sanitize asset IDs before using them as filenames
-- Validate required CSV columns
-- Use fake sample data for public demonstration
+1. `src/qr_label_generator.py`  
+   A small CLI utility for CSV-driven QR label generation.
 
-## Quick start
+2. `src/QRCC_v1_3_0.py`  
+   The original full QRCC v1.3.0 desktop GUI application, sanitized for public open-source use.
+
+## Full GUI application
+
+Run the QRCC desktop app:
 
 ```bash
 pip install -r requirements.txt
+python src/QRCC_v1_3_0.py
+```
+
+The GUI supports:
+
+- One QR per line
+- Grouping multiple lines into one QR
+- QR PNG export
+- PDF sheet export
+- Code128 barcode output
+- Avery-style label workflows
+- User guide access from inside the app
+
+## CLI utility
+
+Run the lightweight CSV-driven utility:
+
+```bash
 python src/qr_label_generator.py examples/assets.csv --out output
 ```
 
-## Test
+## Requirements
 
 ```bash
-python -m pytest
+pip install -r requirements.txt
 ```
 
-## Technology focus
+## Open-source note
 
-Python, QR generation, PDF layout generation, CSV-driven operations tooling and inventory workflows.
+This project is published as a sanitized open-source utility. It contains fake sample data only. Do not commit private asset lists, customer records, real serial-number batches or internal company output files.
+
+## License
+
+MIT
